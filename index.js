@@ -20,6 +20,7 @@ mongolass.connect("mongodb://localhost:27017/maTwitter");
 const dbHelper = require("./lib/db-functions.js")(mongolass);
 app.use("/twits", require("./routes/twit")(dbHelper));
 app.use("/signup", require("./routes/signup")(dbHelper));
+app.use("/signin", require("./routes/signin")(dbHelper));
 app.get("/", (req, res) => {
   dbHelper.getAllTwits().then(allT => {
     res.render("main", {

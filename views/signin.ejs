@@ -1,20 +1,28 @@
-<%- include('header') %>
-
-<div class="ui grid">
-  <div class="four wide column"></div>
-  <div class="eight wide column">
-    <form class="ui form segment" method="post">
-      <div class="field required">
-        <label>用户名</label>
-        <input placeholder="用户名" type="text" name="name">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>sign in page</title>
+  </head>
+  <body>
+    <form action="/signin" method="post">
+      <div class="sign in form">
+        <label>User name</label>
+        <input placeholder="user name" type="text" name="name" />
       </div>
-      <div class="field required">
-        <label>密码</label>
-        <input placeholder="密码" type="password" name="password">
+      <div class="sign in form">
+        <label>Passward</label>
+        <input placeholder="password" type="password" name="password" />
       </div>
-      <input type="submit" class="ui button fluid" value="登录">
-    </form>  
-  </div>
-</div>
-
-<%- include('footer') %>
+      <input type="submit" />
+    </form>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>
