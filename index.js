@@ -46,6 +46,15 @@ app.get("/logout", (req, res) => {
 	res.redirect("/");
 });
 
+app.get("/404", (req, res) => {
+	console.log("hit 404");
+	res.render("404");
+});
+
+app.get("*", (req, res) => {
+	res.redirect("/404");
+});
+
 //Start Server:
 app.listen(PORT, () => {
 	console.log("Tweeter server listening on port " + PORT);
