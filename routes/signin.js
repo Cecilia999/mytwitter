@@ -26,13 +26,13 @@ module.exports = function(dbHelper) {
           }
           res.redirect('/');
         }else{
-            return "invalid username or password";
+            res.status(400).json({error: "invalid username or password"});
         }
       }else{
-          return "username does not exist";
+        res.status(400).json({error: "username does not exist"});
       }
     }).catch((error)=>{
-        console.log("fatal error");
+      res.status(400).json({error: "fatal error"});
     });
   });
 

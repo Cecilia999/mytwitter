@@ -24,7 +24,7 @@ module.exports = function(dbHelper) {
         name: name,
         password: bcrypt.hashSync(password, bcrypt.genSaltSync(11))
       })
-    newUser ? newUser.then(result => {res.redirect("/")}) : res.status(404).end();
+    newUser ? newUser.then(result => {res.redirect("/signin")}) : res.status(404).end();
   });
 
   return routes;
