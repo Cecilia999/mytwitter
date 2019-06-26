@@ -22,7 +22,7 @@ module.exports = function(dbHelper) {
     let newUser = dbHelper
       .createUser({
         name: name,
-        password: bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+        password: bcrypt.hashSync(password, bcrypt.genSaltSync(11))
       })
     newUser ? newUser.then(result => {res.redirect("/")}) : res.status(404).end();
   });
