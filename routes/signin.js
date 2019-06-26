@@ -20,10 +20,10 @@ module.exports = function(dbHelper) {
     dbHelper.findUser(name).then((result)=>{
       if (result.length!=0) {
         if(bcrypt.compareSync(password, result.password)){
-          // req.session.user = {
-          //   name: result.name,
-          //   password: result.password
-          // }
+          req.session.user = {
+            name: result.name,
+            password: result.password
+          }
           res.redirect('/');
         }else{
             return "invalid username or password";
