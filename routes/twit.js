@@ -11,10 +11,16 @@ module.exports = function(dbHelper) {
   });
 
   twitRoutes.post("/", (req, res) => {
-    let newTwit = dbHelper.saveTwit({
-      content: req.body.twit
-    });
-    res.status(200).json("success");
+    if (req.session.user){
+      let newTwit = dbHelper.saveTwit({
+        user:req.session.user.name,
+        content: req.body.twit
+      });
+      res.status(200).json("success");
+    } else {
+      res.status(400).json({error: "Need to login"});
+    }
+
   });
 
   return twitRoutes;

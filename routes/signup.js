@@ -1,6 +1,8 @@
 "use strict";
 
 const express = require("express");
+const bcrypt = require("bcrypt");
+
 const routes = express.Router();
 
 module.exports = function(dbHelper) {
@@ -20,11 +22,9 @@ module.exports = function(dbHelper) {
     let newUser = dbHelper
       .createUser({
         name: name,
-        password: password
+        password: bcrypt.hashSync(password, bcrypt.genSaltSync(11))
       })
-      .then(result => {
-        res.redirect("/");
-      });
+    newUser ? newUser.then(result => {res.redirect("/signin")}) : res.status(404).end();
   });
 
   return routes;
