@@ -20,12 +20,17 @@
 <body>
 	<%- include('components/nav') %>
 	<div class="container mt-3">
-
+		<div class="d-none alert alert-warning alert-dismissible fade show" role="alert">
+			<span class="alert-text"></span>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
 		<%- include('components/post-content') %>
 		<ol>
 			<% for(var i=0; i<allT.length; i++) {%>
 			<li>
-				<p><%= allT[i].user + " tweets " %></p>
+				<p><%= allT[i].user + " twiiits " %></p>
 				<p><%= allT[i].content %></p>
 			</li>
 			<% } %>
