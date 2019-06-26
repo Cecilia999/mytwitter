@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="con">
-      <h1>hello there</h1>
-      <nav class="navbar-top">
-        <div class="navbar-container">
-          <!-- <div class="navbar-header">
-            <a class="navbar-brand" href="">hi</a>
-          </div> -->
 
-          <ul class="nav navbar-nav">
-            <li><a href="/signup">signup</a></li>
-            <li><a href="/signin">signin</a></li>
-            <li><a href="#">Page 3</a></li>
-          </ul>
-        </div>
-      </nav>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+		</script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="/scripts/script.js"></script>
+</head>
 
-    </div>
-    
-    <%- include('components/post-content') %>
-    <ol>
-      <% for(var i=0; i<allT.length; i++) {%>
-        <li>
-            <p><%= allT[i].user + " tweets " %></p>
-            <p><%= allT[i].content %></p>
-        </li>
-      <% } %>
-    </ol>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="/scripts/script.js"></script>
-  </body>
+<body>
+	<%- include('components/nav') %>
+	<div class="container mt-3">
+
+		<%- include('components/post-content') %>
+		<ol>
+			<% for(var i=0; i<allT.length; i++) {%>
+			<li>
+				<p><%= allT[i].user + " tweets " %></p>
+				<p><%= allT[i].content %></p>
+			</li>
+			<% } %>
+		</ol>
+	</div>
+
+</body>
+
 </html>

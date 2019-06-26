@@ -1,10 +1,18 @@
-<div class="nav">
-  <div class="ui grid">
-    <div class="four wide column"></div>
-
-    <div class="eight wide column">
-      <a href="/posts"><h1><%= blog.title %></h1></a>
-      <p><%= blog.description %></p>
-    </div>
-  </div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a href="#" class="navbar-brand mr-auto">Twiiitter</a>
+	<% if(!user){ %>
+	<ul class="form-inline nav navbar-nav navbar-right">
+		<li class="nav-item mr-sm-2">
+			<a class="btn btn-outline-primary" href="/signup">Signup</a>
+		</li>
+		<li class="nav-item">
+			<a class="btn btn-outline-secondary" href="/signin">Log In</a>
+		</li>
+	</ul>
+	<% }else{ %>
+	<ul class="form-inline nav navbar-nav my-2 my-lg-0">
+		<li class="nav-item mr-sm-2"><span><%= user.name %></span></li>
+		<li class="nav-item"><a class="btn btn-outline-secondary" href="\logout">Log Out</a></li>
+	</ul>
+	<% } %>
+</nav>

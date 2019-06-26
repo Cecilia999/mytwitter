@@ -19,10 +19,15 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.set("trust proxy", 1);
 app.use(expressSession({
-  secret: 'Nurse save rare vases run',
-  resave: false,
-  saveUninitialized: true
-}))
+	secret: 'Nurse save rare vases run',
+	resave: false,
+	saveUninitialized: true
+}));
+
+app.use((req, res, next) => {
+	res.locals.user = req.session.user;
+	next();
+});
 
 //Router Setup Section:
 const dbHelper = require("./lib/db-functions.js")(mongolass);
@@ -30,14 +35,18 @@ app.use("/twits", require("./routes/twit")(dbHelper));
 app.use("/signup", require("./routes/signup")(dbHelper));
 app.use("/signin", require("./routes/signin")(dbHelper));
 app.get("/", (req, res) => {
-  dbHelper.getAllTwits().then(allT => {
-    res.render("main", {
-      allT: allT
-    });
-  });
+	dbHelper.getAllTwits().then(allT => {
+		res.render("main", {
+			allT: allT
+		});
+	});
+});
+app.get("/logout", (req, res) => {
+	req.session.user = null;
+	res.redirect("/");
 });
 
 //Start Server:
 app.listen(PORT, () => {
-  console.log("Tweeter server listening on port " + PORT);
+	console.log("Tweeter server listening on port " + PORT);
 });
