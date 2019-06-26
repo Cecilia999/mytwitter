@@ -1,6 +1,7 @@
 "use strict";
 
 const express = require("express");
+//const bcrypt = require("bcrypt");
 const routes = express.Router();
 
 module.exports = function(dbHelper) {
@@ -21,10 +22,8 @@ module.exports = function(dbHelper) {
       .createUser({
         name: name,
         password: password
-      })
-      .then(result => {
-        res.redirect("/");
-      });
+      })//yongzheng;
+    newUser ? newUser.then(result => {res.redirect("/")}) : res.status(404).end();
   });
 
   return routes;
