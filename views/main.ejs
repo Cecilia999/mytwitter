@@ -31,8 +31,8 @@
 			<% for(var i=0; i<allT.length; i++) {%>
 			<li>
 				<p><%= allT[i].user + " twiiits " %></p>
-				<p><%= allT[i].content %></p>
-			</li>
+        <p><%= allT[i].content %></p>
+        <button class ="like-btn" name="like" value=<%= allT[i]._id %>>like <p class="like-count"><%=allT[i].likecount%></p> </button>
 			<% } %>
 		</ol>
 	</div>

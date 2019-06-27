@@ -17,8 +17,8 @@
     "ejs": "2.6.1",
     "express": "4.17.0",
     "express-session": "^1.16.2",
-    "mongodb": "3.2.6",
-    "mongolass": "4.4.2"
+    "moment": "2.24.0",
+    "mongodb": "^2.2.33"
   },
   "devDependencies": {
     "nodemon": "1.19.1"
